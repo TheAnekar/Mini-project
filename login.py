@@ -3,7 +3,6 @@ from tkinter import messagebox
 import mysql.connector
 from mysql.connector import Error
 
-# MySQL Configuration
 def get_db_connection():
     try:
         conn = mysql.connector.connect(
@@ -18,7 +17,6 @@ def get_db_connection():
         messagebox.showerror("Database Error", f"Error connecting to MySQL: {e}")
         return None
 
-# Create users table if not exists
 conn = get_db_connection()
 if conn:
     cursor = conn.cursor()
@@ -65,7 +63,6 @@ def login():
     else:
         messagebox.showerror("Error", "Database connection failed!")
 
-# Tkinter UI Setup
 root = tk.Tk()
 root.title("RespireX Login/Register")
 root.geometry("300x250")
