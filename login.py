@@ -3,7 +3,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtCore import QTimer, QTime
 from PyQt5.QtWidgets import (
     QApplication, QWidget, QLabel, QLineEdit,
-    QPushButton, QVBoxLayout, QMessageBox
+    QPushButton, QVBoxLayout, QMessageBox, QCheckBox
 )
 import mysql.connector
 from mysql.connector import Error
@@ -42,6 +42,7 @@ class LoginWindow(QWidget):
         super().__init__()
         self.setWindowTitle("Login")
         self.setGeometry(600, 300, 300, 200)
+        self.showFullScreen()
 
         layout = QVBoxLayout()
 
@@ -51,6 +52,10 @@ class LoginWindow(QWidget):
         self.password_input = QLineEdit()
         self.password_input.setPlaceholderText("Password")
         self.password_input.setEchoMode(QLineEdit.Password)
+        self.show_pass_checkbox = QCheckBox("Show Password")
+        
+
+        self.show_pass_checkbox.toggled.connect(self.toggle_password_visibility)
 
         login_btn = QPushButton("Login")
         login_btn.clicked.connect(self.login)
@@ -58,9 +63,15 @@ class LoginWindow(QWidget):
         layout.addWidget(QLabel("Login to RespireX"))
         layout.addWidget(self.email_input)
         layout.addWidget(self.password_input)
+        layout.addWidget(self.show_pass_checkbox)
         layout.addWidget(login_btn)
 
         self.setLayout(layout)
+
+        def toggle_password_visibility(self):
+            self.password_input.setEchoMode(
+            QLineEdit.Normal if self.show_pass_checkbox.isChecked() else QLineEdit.Password
+        )
 
     def login(self):
         email = self.email_input.text()
@@ -86,6 +97,7 @@ class RegisterWindow(QWidget):
         super().__init__()
         self.setWindowTitle("Register")
         self.setGeometry(600, 300, 300, 200)
+        self.showFullScreen()
 
         layout = QVBoxLayout()
 
@@ -95,6 +107,7 @@ class RegisterWindow(QWidget):
         self.password_input = QLineEdit()
         self.password_input.setPlaceholderText("Password")
         self.password_input.setEchoMode(QLineEdit.Password)
+        self.show_pass_checkbox = QCheckBox("Show Password")
 
         register_btn = QPushButton("Register")
         register_btn.clicked.connect(self.register)
@@ -102,6 +115,7 @@ class RegisterWindow(QWidget):
         layout.addWidget(QLabel("Register on RespireX"))
         layout.addWidget(self.email_input)
         layout.addWidget(self.password_input)
+        layout.addWidget(self.show_pass_checkbox)
         layout.addWidget(register_btn)
 
         self.setLayout(layout)
@@ -129,6 +143,7 @@ class MainWindow(QWidget):
         super().__init__()
         self.setWindowTitle("RespireX")
         self.setGeometry(500, 250, 300, 200)
+        self.showFullScreen()
 
         layout = QVBoxLayout()
 
