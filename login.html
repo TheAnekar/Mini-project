@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RespireX | Login & Signup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      background: url('https://img.freepik.com/premium-photo/virtual-human-lungs-dark-blue-background-dark-blue-background-low-poly-copy-space_486333-1648.jpg') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      padding-left: 5%;
+    }
+
+    .container {
+      background-color: #111;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00f6ff;
+      width: 350px;
+      max-width: 90%;
+      text-align: center;
+      position: absolute;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #00f6ff;
+      text-shadow: 0 0 8px #61d7dc88;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 10px;
+      background-color: #222;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus {
+      border: 1px solid #00f6ff;
+      box-shadow: 0 0 10px #00f6ff;
+    }
+
+    .neon-btn {
+      margin-top: 1rem;
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #18f0f7, 0 0 20px #22e3f9 inset;
+      transition: 0.3s ease;
+    }
+
+    .neon-btn:hover {
+      background-color: #0085cc;
+      box-shadow: 0 0 15px #00f6ff, 0 0 25px #00f6ff inset;
+    }
+
+    .toggle-link {
+      display: block;
+      margin-top: 1rem;
+      color: #00f6ff;
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="form-title">Login to RespireX</h2>
+    
+    <form id="login-form">
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button class="neon-btn" type="submit">Login</button>
+    </form>
+    
+    <form id="signup-form" class="hidden">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button class="neon-btn" type="submit">Sign Up</button>
+    </form>
+
+    <span class="toggle-link" onclick="toggleForms()">Don't have an account? Sign up</span>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const formTitle = document.getElementById('form-title');
+    const toggleLink = document.querySelector('.toggle-link');
+
+    function toggleForms() {
+      loginForm.classList.toggle('hidden');
+      signupForm.classList.toggle('hidden');
+
+      if (loginForm.classList.contains('hidden')) {
+        formTitle.innerText = "Create Your RespireX Account";
+        toggleLink.innerText = "Already have an account? Login";
+      } else {
+        formTitle.innerText = "Login to RespireX";
+        toggleLink.innerText = "Don't have an account? Sign up";
+      }
+    }
+  </script>
+</body>
+</html>
