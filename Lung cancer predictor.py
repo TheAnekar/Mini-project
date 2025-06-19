@@ -36,4 +36,4 @@ risk_mapping = {0: "Low Risk", 1: "Medium Risk", 2: "High Risk"}
 print("Prediction:", risk_mapping[prediction[0]])
 
 with open('model.pkl', 'wb') as f:
-    pickle.dump(model, f)
+    pickle.dump((scaler,model), f)
