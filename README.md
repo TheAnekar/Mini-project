@@ -60,7 +60,7 @@ python app.py
 * **Image Model**: `lung_cancer_model.keras`
   Processes CT scan images and classifies them as benign or malignant.
 
-* **Text Model**: `report_model.pkl`
+* **Text Model**: `model.pkl`
   Predicts lung cancer risk from patient medical reports.
 
 ---
