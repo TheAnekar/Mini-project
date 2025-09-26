@@ -83,8 +83,9 @@ python app.py
 ## 💡 Contact
 
 **Harris Ruben**
-Email: [harrisrubenr.com](mailto:harrisrubenr.com)
-GitHub: [https://github.com/harrisruben](https://github.com/harrisruben)
+* Email: [harrisrubenr.com](mailto:harrisrubenr.com)
+* GitHub: [https://github.com/harrisruben](https://github.com/harrisruben)
+---
 **Mohamed Ashraf**
-Email: [iamashraf28.com](mailto:iamashraf28.com)
-GitHub: [https://github.com/harrisruben](https://github.com/TheAnekar)
+* Email: [iamashraf28.com](mailto:iamashraf28.com)
+* GitHub: [https://github.com/harrisruben](https://github.com/TheAnekar)
